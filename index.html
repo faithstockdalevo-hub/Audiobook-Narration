@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faith Stockdale | Audiobook Narrator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-deep: #1a3d2b;
+    --green-mid: #2d6b44;
+    --green-bright: #4a9461;
+    --green-light: #8fbc8f;
+    --green-pale: #e8f0e4;
+    --orange: #c4622d;
+    --orange-deep: #9b3a1a;
+    --orange-light: #d4895a;
+    --cream: #f5f0e8;
+    --cream-dark: #ede6d6;
+    --text-dark: #1a1a1a;
+    --text-mid: #3a3a3a;
+    --text-light: #6a6a6a;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(26, 61, 43, 0.97);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--orange-light); font-style: italic; }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    color: var(--green-pale);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--orange-light); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--cream); transition: 0.3s; }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    background: var(--green-deep);
+    display: flex; align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .hero-text {}
+  .hero-eyebrow {
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--orange-light);
+    margin-bottom: 1.2rem;
+  }
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 0.4rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--green-light);
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--orange-light);
+    margin-bottom: 1.8rem;
+  }
+  .hero-bio {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--green-pale);
+    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 2.4rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--orange);
+    color: white;
+    text-decoration: none;
+    padding: 14px 32px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none; cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--orange-deep); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    text-decoration: none;
+    padding: 13px 32px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: border-color 0.25s, color 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--orange-light); color: var(--orange-light); transform: translateY(-2px); }
+
+  .hero-image-wrap {
+    display: flex; justify-content: center; align-items: center;
+  }
+  .hero-photo-frame {
+    width: clamp(260px, 38vw, 400px);
+    aspect-ratio: 4/5;
+    background: var(--green-mid);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(26,61,43,0.7) 100%);
+    z-index: 1;
+  }
+  .hero-photo-frame img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+    display: block;
+  }
+  .hero-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px; color: var(--green-light);
+  }
+  .hero-photo-placeholder svg { opacity: 0.5; }
+  .hero-photo-placeholder p { font-size: 0.85rem; opacity: 0.6; text-align: center; padding: 0 20px; }
+  .frame-accent {
+    position: absolute;
+    bottom: -12px; right: -12px;
+    width: 60%; height: 60%;
+    border: 2px solid var(--orange);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-photo-wrap { position: relative; }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 90px 5%; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--green-deep);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+  .section-title em { font-style: italic; color: var(--green-mid); }
+  .divider {
+    width: 48px; height: 2px;
+    background: var(--orange);
+    margin-bottom: 2.4rem;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 70px; align-items: start; }
+  .about-photo-frame {
+    width: 100%; aspect-ratio: 4/5;
+    background: var(--green-pale);
+    position: relative; overflow: hidden;
+  }
+  .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .about-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; color: var(--green-mid);
+  }
+  .about-photo-placeholder p { font-size: 0.8rem; opacity: 0.6; text-align: center; padding: 0 16px; }
+  .about-accent {
+    position: absolute; top: -10px; left: -10px;
+    width: 50%; height: 50%;
+    border: 2px solid var(--green-light);
+    pointer-events: none;
+  }
+  .about-text p {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.85;
+    color: var(--text-mid); margin-bottom: 1.4rem;
+  }
+  .about-stats {
+    display: flex; gap: 2.5rem; margin-top: 2rem; flex-wrap: wrap;
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2.8rem; font-weight: 600;
+    color: var(--green-deep); line-height: 1;
+  }
+  .stat-num span { color: var(--orange); }
+  .stat-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-top: 4px; }
+  .genres-wrap { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 2rem; }
+  .genre-tag {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1.5px solid var(--green-mid);
+    color: var(--green-mid);
+  }
+
+  /* ── SAMPLES ── */
+  #samples { background: var(--green-deep); }
+  #samples .section-title { color: var(--cream); }
+  #samples .section-title em { color: var(--green-light); }
+  #samples .section-label { color: var(--orange-light); }
+  #samples .divider { background: var(--orange-light); }
+  .samples-intro {
+    font-size: 1rem; font-weight: 300; line-height: 1.8;
+    color: var(--green-pale); max-width: 560px; margin-bottom: 3rem;
+  }
+  .samples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5px;
+  }
+  .sample-card {
+    background: rgba(255,255,255,0.05);
+    padding: 28px 28px 24px;
+    border-left: 3px solid transparent;
+    transition: background 0.25s, border-color 0.25s;
+    cursor: default;
+  }
+  .sample-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-left-color: var(--orange);
+  }
+  .sample-number {
+    font-family: var(--font-display);
+    font-size: 2rem; font-weight: 300; font-style: italic;
+    color: rgba(255,255,255,0.12);
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  .sample-genre {
+    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--orange-light);
+    margin-bottom: 6px;
+  }
+  .sample-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem; font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+  .sample-subtitle {
+    font-size: 0.8rem; font-weight: 300;
+    color: var(--green-pale); opacity: 0.7;
+    margin-bottom: 18px;
+  }
+  .audio-player {
+    width: 100%;
+    accent-color: var(--orange-light);
+    height: 28px;
+  }
+  audio { width: 100%; accent-color: var(--orange-light); }
+  .sample-placeholder {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.07);
+    border: 1px dashed rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .sample-placeholder:hover { background: rgba(255,255,255,0.11); }
+  .play-btn {
+    width: 36px; height: 36px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .sample-placeholder:hover .play-btn { background: var(--orange-deep); transform: scale(1.08); }
+  .play-btn svg { margin-left: 2px; }
+  .sample-placeholder-text { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,0.55); }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--cream-dark); }
+  .portfolio-intro {
+    font-size: 1rem; font-weight: 300; line-height: 1.8;
+    color: var(--text-mid); max-width: 540px; margin-bottom: 2rem;
+  }
+  .carousel-wrap { position: relative; }
+  .books-grid {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .books-grid::-webkit-scrollbar { display: none; }
+  .book-card {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    background: var(--green-pale);
+    flex: 0 0 260px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .book-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0,0,0,0.18); }
+  .book-cover {
+    width: 100%; aspect-ratio: 1/1;
+    background: var(--green-pale);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; color: var(--green-mid);
+    overflow: hidden; position: relative;
+  }
+  .book-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .book-cover-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px;
+  }
+  .book-cover-placeholder svg { opacity: 0.4; }
+  .book-overlay {
+    position: absolute; inset: 0;
+    background: rgba(26,61,43,0.88);
+    opacity: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 14px; text-align: center;
+    transition: opacity 0.3s;
+  }
+  .book-card:hover .book-overlay { opacity: 1; }
+  .book-overlay-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem; font-weight: 400; font-style: italic;
+    color: var(--cream); margin-bottom: 6px;
+  }
+  .book-overlay-author {
+    font-size: 0.78rem; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--green-light);
+  }
+  .book-info { padding: 14px 16px 16px; background: white; }
+  .book-info-title { font-size: 0.92rem; font-weight: 500; color: var(--text-dark); }
+  .book-info-author { font-size: 0.78rem; font-weight: 300; color: var(--text-light); margin-top: 2px; }
+  .carousel-btn {
+    position: absolute; top: 42%; transform: translateY(-50%);
+    width: 44px; height: 44px;
+    background: var(--green-deep);
+    border: none; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: white; z-index: 10;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  .carousel-btn:hover { background: var(--orange); transform: translateY(-50%) scale(1.08); }
+  .carousel-btn.prev { left: -22px; }
+  .carousel-btn.next { right: -22px; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--green-deep); }
+  #contact .section-title { color: var(--cream); }
+  #contact .section-title em { color: var(--green-light); }
+  #contact .section-label { color: var(--orange-light); }
+  #contact .divider { background: var(--orange-light); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 70px; align-items: start; }
+  .contact-info {}
+  .contact-tagline {
+    font-family: var(--font-display);
+    font-size: 1.6rem; font-style: italic; font-weight: 300;
+    color: var(--green-pale);
+    line-height: 1.5; margin-bottom: 2rem;
+  }
+  .contact-detail {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem; font-weight: 300; color: var(--green-pale);
+  }
+  .contact-icon {
+    width: 38px; height: 38px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: var(--orange-light);
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 7px; }
+  .form-group label {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--green-light);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: var(--cream);
+    padding: 13px 16px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.25s, background 0.25s;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--orange-light);
+    background: rgba(255,255,255,0.1);
+  }
+  .form-group textarea { resize: vertical; min-height: 130px; }
+  .form-group select option { background: var(--green-deep); color: var(--cream); }
+  .form-submit {
+    margin-top: 6px;
+    background: var(--orange);
+    color: white;
+    border: none; cursor: pointer;
+    padding: 15px 36px;
+    font-family: var(--font-body);
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    transition: background 0.25s, transform 0.2s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { background: var(--orange-deep); transform: translateY(-2px); }
+  .form-success {
+    display: none;
+    padding: 20px;
+    background: rgba(74,148,97,0.2);
+    border: 1px solid var(--green-bright);
+    color: var(--green-pale);
+    font-size: 0.95rem; font-weight: 300;
+    margin-top: 10px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0f2619;
+    padding: 32px 5%;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem; font-weight: 300; font-style: italic;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-copy { font-size: 0.75rem; font-weight: 300; color: rgba(255,255,255,0.3); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-image-wrap { order: -1; }
+    .hero-photo-frame { max-width: 280px; margin: 0 auto; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-photo-frame { max-width: 340px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 68px; left: 0; right: 0;
+      background: rgba(26,61,43,0.98);
+      padding: 20px 5%; gap: 1.2rem;
+    }
+    .hamburger { display: flex; }
+    .books-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+    .samples-grid { grid-template-columns: 1fr; }
+    .hero-ctas { flex-direction: column; }
+    .btn-primary, .btn-outline { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">Faith <span>Stockdale</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#samples">Samples</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Audiobook Narrator</p>
+      <h1 class="hero-name">Faith<br><em>Stockdale</em></h1>
+      <p class="hero-title">Bringing stories to life, one chapter at a time.</p>
+      <p class="hero-bio">
+        Professional audiobook narrator specializing in bringing vivid characters and 
+        immersive worlds to listeners everywhere. Available for publishers, indie authors, 
+        and production houses.
+      </p>
+      <div class="hero-ctas">
+        <a href="#samples" class="btn-primary">Listen to Samples</a>
+        <a href="#contact" class="btn-outline">Work With Me</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <img src="images/4.jpg" alt="Faith Stockdale">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div style="position:relative;">
+        <div class="about-accent"></div>
+        <div class="about-photo-frame">
+          <!-- Replace with: <img src="your-studio-photo.jpg" alt="Faith in the studio"> -->
+          <img src="images/Photo.jpg" alt="Faith Stockdale">
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">A voice you'll <em>remember</em></h2>
+        <div class="divider"></div>
+        <p>
+          Hello! I'm Faith Stockdale — an audiobook narrator with a passion for storytelling 
+          and a deep love of books. I believe every story deserves a voice that honors its 
+          characters, its world, and its emotional truth.
+        </p>
+        <p>
+          <!-- Add your personal bio here. Tell readers about your background, 
+               what drew you to narration, your recording setup, or anything 
+               that makes your voice unique. -->
+          Whether it's a sweeping romance, a gripping thriller, or an inspiring non-fiction 
+          work, I bring warmth, clarity, and authentic characterization to every project I take on.
+        </p>
+        <p>
+          I work with publishers, production houses, and independent authors to deliver 
+          broadcast-quality recordings from my professional home studio.
+        </p>
+        <div class="genres-wrap">
+          <span class="genre-tag">Romance</span>
+          <span class="genre-tag">Thriller</span>
+          <span class="genre-tag">Fantasy</span>
+          <span class="genre-tag">Mystery</span>
+          <span class="genre-tag">Non-Fiction</span>
+          <span class="genre-tag">Literary Fiction</span>
+        </div>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-num">11<span>+</span></div>
+            <div class="stat-label">Titles Narrated</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">78<span>+</span></div>
+            <div class="stat-label">Hours Recorded</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLES -->
+<section id="samples">
+  <div class="section-inner">
+    <p class="section-label">Listen</p>
+    <h2 class="section-title">Narration <em>Samples</em></h2>
+    <div class="divider"></div>
+    <p class="samples-intro">
+      Listen to a selection of samples spanning a range of genres and character types. 
+      Each sample showcases a different facet of my narration style.
+    </p>
+    <div class="samples-grid">
+
+      <!-- SAMPLE 1 -->
+      <div class="sample-card">
+        <div class="sample-number">01</div>
+        <div class="sample-genre">Literary &amp; Fiction</div>
+        <div class="sample-title">Literary &amp; Fiction Sample</div>
+        <div class="sample-subtitle">Faith Stockdale · Narration Demo</div>
+        <audio class="audio-player" controls src="audio/Faith_Stockdale_DITR_Audition_01Literary%20and%20Fiction.mp3"></audio>
+      </div>
+
+      <!-- SAMPLE 2 -->
+      <div class="sample-card">
+        <div class="sample-number">02</div>
+        <div class="sample-genre">Romance</div>
+        <div class="sample-title">Romance Sample</div>
+        <div class="sample-subtitle">Faith Stockdale · Narration Demo</div>
+        <audio class="audio-player" controls src="audio/Faith_Stockdale_HFS_Audition_01Romance.mp3"></audio>
+      </div>
+
+      <!-- SAMPLE 3 -->
+      <div class="sample-card">
+        <div class="sample-number">03</div>
+        <div class="sample-genre">Romance</div>
+        <div class="sample-title">Romance Sample II</div>
+        <div class="sample-subtitle">Faith Stockdale · Narration Demo</div>
+        <audio class="audio-player" controls src="audio/FaithStockdale_GhostWriting_Audition_01Romance.mp3"></audio>
+      </div>
+
+      <!-- SAMPLE 4 -->
+      <div class="sample-card">
+        <div class="sample-number">04</div>
+        <div class="sample-genre">Science Fiction &amp; Fantasy</div>
+        <div class="sample-title">Sci-Fi &amp; Fantasy Sample</div>
+        <div class="sample-subtitle">Faith Stockdale · Narration Demo</div>
+        <audio class="audio-player" controls src="audio/FaithStockdale_TCOLS_AuditionScience%20Fiction%20and%20Fantasy.mp3"></audio>
+      </div>
+
+      <!-- SAMPLE 5 -->
+      <div class="sample-card">
+        <div class="sample-number">05</div>
+        <div class="sample-genre">Young Adult</div>
+        <div class="sample-title">Young Adult Sample</div>
+        <div class="sample-subtitle">Faith Stockdale · Narration Demo</div>
+        <audio class="audio-player" controls src="audio/FaithStockdale_TKTU_Audition_01Young%20Adult.mp3"></audio>
+      </div>
+
+      <!-- SAMPLE 6 -->
+      <div class="sample-card">
+        <div class="sample-number">06</div>
+        <div class="sample-genre">Mystery &amp; Thriller</div>
+        <div class="sample-title">Mystery &amp; Thriller Sample</div>
+        <div class="sample-subtitle">Faith Stockdale · Narration Demo</div>
+        <audio class="audio-player" controls src="audio/FaithStockdale_TraumaBond_Audition%20Mystery%20Thriller.mp3"></audio>
+      </div>
+
+      <!-- SAMPLE 7 -->
+      <div class="sample-card">
+        <div class="sample-number">07</div>
+        <div class="sample-genre">Romance</div>
+        <div class="sample-title">Romance Sample III</div>
+        <div class="sample-subtitle">Faith Stockdale · Narration Demo</div>
+        <audio class="audio-player" controls src="audio/Faith_Stockdale_LoatheatfirstSight_Audition_01Romance.mp3"></audio>
+      </div>
+
+      <!-- SAMPLE 8 -->
+      <div class="sample-card">
+        <div class="sample-number">08</div>
+        <div class="sample-genre">Emotional Romance</div>
+        <div class="sample-title">Emotional Romance Sample</div>
+        <div class="sample-subtitle">Faith Stockdale · Narration Demo</div>
+        <audio class="audio-player" controls src="audio/File_01_AudioExcerptsEmotional%20Romance.mp3"></audio>
+      </div>
+
+      <!-- SAMPLE 9 -->
+      <div class="sample-card">
+        <div class="sample-number">09</div>
+        <div class="sample-genre">Science Fiction &amp; Fantasy</div>
+        <div class="sample-title">Sci-Fi &amp; Fantasy Sample II</div>
+        <div class="sample-subtitle">Faith Stockdale · Narration Demo</div>
+        <audio class="audio-player" controls src="audio/FaithStockdale_WABAMMR_AuditionScienceFictionandfantasy.mp3"></audio>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-inner">
+    <p class="section-label">Work</p>
+    <h2 class="section-title">Books I've <em>Narrated</em></h2>
+    <div class="divider"></div>
+    <p class="portfolio-intro">
+      A selection of titles I've had the privilege of bringing to life. 
+      Hover over any cover to see the details.
+    </p>
+    <div class="carousel-wrap">
+      <button class="carousel-btn prev" onclick="scrollBooks(-1)" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+      </button>
+      <button class="carousel-btn next" onclick="scrollBooks(1)" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+      </button>
+    <div class="books-grid" id="booksGrid">
+
+      <!-- BOOK 1 -->
+      <div class="book-card">
+        <div class="book-cover">
+          <img src="images/bone_chimes_3_AUDIO%20copy.jpg" alt="Bone Chimes 3">
+          <div class="book-overlay">
+            <div class="book-overlay-title">Bone Chimes 3</div>
+            <div class="book-overlay-author">Kristopher Rufty</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-info-title">Bone Chimes 3</div>
+          <div class="book-info-author">Kristopher Rufty</div>
+        </div>
+      </div>
+
+      <!-- BOOK 2 -->
+      <div class="book-card">
+        <div class="book-cover">
+          <img src="images/Greensburg%20collection%20audio.jpg" alt="Recurrence of Inheritance">
+          <div class="book-overlay">
+            <div class="book-overlay-title">Recurrence of Inheritance</div>
+            <div class="book-overlay-author">Emily Klepp</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-info-title">Recurrence of Inheritance</div>
+          <div class="book-info-author">Emily Klepp</div>
+        </div>
+      </div>
+
+      <!-- BOOK 3 -->
+      <div class="book-card">
+        <div class="book-cover">
+          <img src="images/haneyjr_acx%20copy.jpg" alt="The Girl Everyone Watches">
+          <div class="book-overlay">
+            <div class="book-overlay-title">The Girl Everyone Watches</div>
+            <div class="book-overlay-author">C. Edwards</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-info-title">The Girl Everyone Watches</div>
+          <div class="book-info-author">C. Edwards</div>
+        </div>
+      </div>
+
+      <!-- BOOK 4 -->
+      <div class="book-card">
+        <div class="book-cover">
+          <img src="images/IMG_5055.jpg" alt="Alyona's Heartstrings">
+          <div class="book-overlay">
+            <div class="book-overlay-title">Alyona's Heartstrings</div>
+            <div class="book-overlay-author">A Forbidden Love Story</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-info-title">Alyona's Heartstrings</div>
+          <div class="book-info-author">A Forbidden Love Story</div>
+        </div>
+      </div>
+
+      <!-- BOOK 5 -->
+      <div class="book-card">
+        <div class="book-cover">
+          <img src="images/jagger_AUDIO%20copy.jpg" alt="Jagger">
+          <div class="book-overlay">
+            <div class="book-overlay-title">Jagger</div>
+            <div class="book-overlay-author">Kristopher Rufty</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-info-title">Jagger</div>
+          <div class="book-info-author">Kristopher Rufty</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="section-label">Get In Touch</p>
+        <h2 class="section-title">Let's create something <em>wonderful</em></h2>
+        <div class="divider"></div>
+        <p class="contact-tagline">
+          "Ready to give your story the voice it deserves? I'd love to hear from you."
+        </p>
+        <div class="contact-detail">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <a href="mailto:faithstockdalevo@gmail.com" style="color:var(--green-pale); text-decoration:none;">faithstockdalevo@gmail.com</a>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          </div>
+          Typical response time: 24–48 hours
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mgoqplpn" method="POST" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="project">Project Type</label>
+            <select id="project" name="project">
+              <option value="">Select a project type…</option>
+              <option>Audiobook — Romance</option>
+              <option>Audiobook — Thriller / Mystery</option>
+              <option>Audiobook — Fantasy / Sci-Fi</option>
+              <option>Audiobook — Non-Fiction</option>
+              <option>Audiobook — Other Genre</option>
+              <option>Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell me about your project</label>
+            <textarea id="message" name="message" placeholder="Share the title, genre, word count, timeline, and anything else you'd like me to know…" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+          <div class="form-success" id="formSuccess">
+            Thank you! Your message has been sent. I'll be in touch within 24–48 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Faith Stockdale</div>
+  <div class="footer-copy">&copy; 2025 Faith Stockdale · Audiobook Narrator · All rights reserved.</div>
+</footer>
+
+<script>
+  function scrollBooks(dir) {
+    const grid = document.getElementById('booksGrid');
+    grid.scrollBy({ left: dir * 300, behavior: 'smooth' });
+  }
+
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const data = new FormData(form);
+    try {
+      const response = await fetch('https://formspree.io/f/mgoqplpn', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        alert('Oops! There was a problem. Please email faithstockdalevo@gmail.com directly.');
+      }
+    } catch (error) {
+      alert('Oops! There was a problem. Please email faithstockdalevo@gmail.com directly.');
+    }
+  }
+
+  // Smooth fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.sample-card, .book-card, .about-grid, .contact-grid').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
